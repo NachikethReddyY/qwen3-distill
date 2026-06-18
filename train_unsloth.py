@@ -5,16 +5,21 @@ Runs on Nosana RTX 3090 or local GPU.
 """
 
 from unsloth import FastLanguageModel
+from transformers import AutoTokenizer, TrainingArguments
 from trl import SFTTrainer
-from transformers import TrainingArguments
 from datasets import load_dataset
 
 # Load base model with 4-bit quantization for efficiency
 model, tokenizer = FastLanguageModel.from_pretrained(
-    "./models/qwen3-8b",
+    "Qwen/Qwen3-8B",  # Use HuggingFace directly to avoid local tokenizer issues
     max_seq_length=8192,
     load_in_4bit=True,
 )
+
+# Fallback: if HuggingFace fails, use local model but load tokenizer separately
+if tokenizer is None:
+    print("Loading tokenizer separately...")
+    tokenizer = AutoTokenizer.from_pretrained("./models/qwen3-8b", trust_remote_code=True)
 
 # Prepare model for QLoRA fine-tuning
 model = FastLanguageModel.get_peft_model(
