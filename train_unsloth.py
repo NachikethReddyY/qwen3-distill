@@ -11,7 +11,7 @@ from datasets import load_dataset
 
 # Load base model with 4-bit quantization for efficiency
 model, tokenizer = FastLanguageModel.from_pretrained(
-    "Qwen/Qwen3-8B",
+    "./models/qwen3-8b",
     max_seq_length=8192,
     load_in_4bit=True,
 )
