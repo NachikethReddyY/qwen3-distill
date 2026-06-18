@@ -1,0 +1,30 @@
+Design a system architecture for a real-time collaborative canvas editor (like Figma) that handles concurrent user edits, undo/redo, and network synchronization. Walk through the data structures, conflict resolution, and client-server communication.
+Explain how you would optimize a React application with 10,000 list items that update frequently. Consider virtualization, memoization, code splitting, and state management strategies.
+Design a WebSocket-based multiplayer game system where players can interact in real-time. Address network latency, authoritative server validation, cheating prevention, and state synchronization.
+Implement a JavaScript algorithm to detect and resolve circular dependencies in a module dependency graph. Explain the graph traversal strategy and edge cases.
+Create a complex data pipeline in Python that ingests streaming data, aggregates it by multiple dimensions, and outputs visualization-ready summaries. Explain batching, windowing, and error handling.
+Design a caching strategy for a web application that uses multiple cache layers (browser cache, CDN, application cache). Address cache invalidation, stale-while-revalidate, and consistency.
+Explain how you would implement real-time collaborative editing with conflict-free replicated data types (CRDTs). Compare with operational transformation approaches.
+Build a React animation system that coordinates multiple GSAP timelines based on user interactions. Address timing coordination, memory management, and performance optimization.
+Design a system for A/B testing at scale where different user segments see different features. Address statistical significance, experiment allocation, and data collection.
+Implement a JavaScript pattern for managing complex async workflows with proper error handling, retry logic, and progress tracking. Handle cancellation and cleanup.
+Create a Python data visualization pipeline that transforms raw data into interactive matplotlib visualizations. Address data validation, transformation, and performance for large datasets.
+Design a frontend architecture for a single-page application with complex state management. Compare Redux, MobX, and Zustand approaches for your use case.
+Explain how you would implement a performant infinite scroll with dynamic content loading, lazy image loading, and virtualization in React.
+Build a system for detecting and preventing XSS attacks in user-generated content. Consider sanitization strategies, CSP headers, and output encoding.
+Design a microservices architecture for an e-commerce platform with separate services for products, orders, payments, and inventory. Address service communication, consistency, and failure modes.
+Implement a JavaScript library for gesture recognition that detects swipes, pinches, and multi-touch patterns. Address performance and browser compatibility.
+Create a Python machine learning pipeline for training and serving models with data validation, feature engineering, and model versioning.
+Design a database schema for a social media platform supporting posts, comments, likes, and follows. Address query performance, denormalization, and eventual consistency.
+Explain the tradeoffs between client-side rendering, server-side rendering, and static site generation for different use cases.
+Build a JavaScript performance monitoring system that tracks metrics like FCP, LCP, CLS, and TTI. Address data collection, aggregation, and alerting.
+Design a system for handling payments with credit cards, digital wallets, and cryptocurrency. Address security, compliance (PCI-DSS), and failure scenarios.
+Implement a React component library with proper theming, accessibility, and documentation. Address prop design, composition patterns, and versioning.
+Create a Python web scraping system that respects robots.txt, handles rate limiting, and detects anti-scraping measures. Address data quality and error handling.
+Design a notification system that supports push notifications, in-app messages, and email. Address delivery guarantees, batching, and user preferences.
+Explain how you would implement end-to-end encryption in a messaging application. Address key exchange, forward secrecy, and group chat challenges.
+Build a system for real-time analytics that ingests events from multiple sources, aggregates them, and serves dashboards. Address latency, scalability, and data freshness.
+Implement a JavaScript testing strategy for React components including unit tests, integration tests, and E2E tests. Address test organization, mocking, and CI/CD integration.
+Create a Python script for automating infrastructure deployment with proper error handling, rollback, and monitoring.
+Design an API rate limiting system that protects against abuse while allowing legitimate traffic. Compare token bucket, sliding window, and other approaches.
+Explain how you would approach debugging a memory leak in a Node.js application. Walk through tools, investigation strategies, and common causes.

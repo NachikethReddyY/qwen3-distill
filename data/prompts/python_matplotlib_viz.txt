@@ -1,0 +1,30 @@
+Create a matplotlib visualization with multiple subplots showing time-series data with rolling averages and confidence intervals.
+Build a Python script using matplotlib to create an interactive dashboard with linked plots and hover tooltips.
+Implement a Python function that generates a heatmap from a correlation matrix with custom colormaps and annotations.
+Create a matplotlib animation that visualizes algorithm steps like sorting, graph traversal, or pathfinding in real-time.
+Build a Python visualization for a decision tree with custom styling, node labels, and probability indicators.
+Implement a matplotlib 3D scatter plot with color mapping, size scaling, and interactive rotation capabilities.
+Create a Python script for batch processing multiple datasets and generating comparison visualizations with matplotlib.
+Build a matplotlib figure that shows statistical distributions with histograms, KDE curves, and Q-Q plots.
+Implement a Python function to create a sankey diagram using matplotlib showing data flow or transitions.
+Create a matplotlib visualization of network graphs with force-directed layout and node clustering.
+Build a Python script using matplotlib to create publication-ready plots with proper labeling and styling.
+Implement a custom matplotlib animation that visualizes particle simulations or physics phenomena.
+Create a Python visualization tool for exploring high-dimensional data using PCA or t-SNE with matplotlib.
+Build a matplotlib figure with subplots that update in real-time from a data stream using generators.
+Implement a Python function to create interactive legends and selectors in matplotlib using event handlers.
+Create a matplotlib visualization of a heatmap with hierarchical clustering dendrograms.
+Build a Python script that generates SVG-compatible matplotlib plots with custom styling and annotations.
+Implement a Python function for creating stacked bar charts with matplotlib that handle categorical data efficiently.
+Create a matplotlib visualization for time-series forecasting with prediction intervals and confidence bands.
+Build a Python script using matplotlib to create radar charts with multiple series and custom styling.
+Implement a custom matplotlib color map that transitions smoothly between colors based on data ranges.
+Create a Python visualization for exploring relationships in multivariate data with pair plots and marginal distributions.
+Build a matplotlib figure that combines multiple plot types (scatter, line, histogram) in a coherent layout.
+Implement a Python function to create animations of transforming datasets with matplotlib and proper frame timing.
+Create a matplotlib visualization of optimization convergence with multiple algorithms and convergence metrics.
+Build a Python script for creating publication-quality plots with proper figure sizing, DPI, and font settings.
+Implement a Python function for creating custom matplotlib axes with dual y-axes or secondary x-axes for comparison.
+Create a matplotlib visualization for financial data with candlestick charts, volume bars, and technical indicators.
+Build a Python script using matplotlib to create treemap visualizations for hierarchical data representation.
+Implement a Python function for creating matplotlib figures with custom colormaps, gridlines, and spine styling.

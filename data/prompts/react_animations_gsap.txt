@@ -1,0 +1,25 @@
+Create a React component with GSAP timeline animations for a carousel that transitions between images smoothly with stagger effects.
+Build a React component using GSAP ScrollTrigger to animate elements as they enter the viewport during scroll.
+Implement a React hook that uses GSAP to animate SVG path drawing effects with proper cleanup on unmount.
+Create a React component that animates a loading spinner using GSAP with morphing shapes and color transitions.
+Build an interactive React dashboard using GSAP that animates chart values when data updates, with easing functions.
+Create a React component that uses GSAP to implement a smooth page transition animation between route changes.
+Implement a React modal component with GSAP entrance and exit animations using timelines and callbacks.
+Build a React component for an animated navigation menu with GSAP stagger animations for submenu items.
+Create a React component that uses GSAP to animate a progress bar with multiple stages and smooth transitions.
+Implement a React gesture-based animation using GSAP that responds to mouse movement with parallax effects.
+Build a React component with GSAP that animates numbers counting up from zero to a target value.
+Create a React component for an animated particle background using GSAP with physics-based motion.
+Implement a complex React animation sequence using GSAP timelines that coordinates multiple DOM elements.
+Build a React component that uses GSAP to create morphing between different SVG shapes smoothly.
+Create a React component for an animated form with GSAP that highlights errors and animates success states.
+Implement a React image gallery with GSAP 3D flip animations and smooth transitions between images.
+Build a React component that animates a text reveal effect using GSAP with character-by-character timing.
+Create a React hook for managing GSAP animations with proper lifecycle management and memory cleanup.
+Implement a React component for animated data visualization using GSAP with real-time updates.
+Build a React component that uses GSAP to create smooth scroll-based parallax and pinning effects.
+Create an interactive React animation using GSAP that responds to user input with complex timing sequences.
+Implement a React component for animated tooltips with GSAP entrance animations and smart positioning.
+Build a React component that uses GSAP to animate SVG paths for drawing charts or diagrams dynamically.
+Create a React component for a animated timeline using GSAP with click-to-scroll and smooth transitions.
+Implement a React component that uses GSAP to create a morphing background with wave animations.
