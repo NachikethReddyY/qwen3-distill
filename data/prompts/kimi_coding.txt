@@ -1,0 +1,50 @@
+Implement a function to find the longest substring without repeating characters.
+Write a function to merge two sorted arrays into one sorted array.
+Implement binary search in Python.
+Write a function to check if a string is a valid palindrome.
+Implement a function to reverse a linked list.
+Write a function to find all pairs in an array that sum to a target value.
+Implement a function to calculate the fibonacci sequence up to n.
+Write a function to find the first non-repeating character in a string.
+Implement a function to flatten a nested list.
+Write a function to implement a simple LRU cache.
+Implement a function to find the common elements between two arrays.
+Write a function to validate a JSON string.
+Implement a function to find all permutations of a string.
+Write a function to implement a simple todo list API with CRUD operations.
+Implement a function to find the median of two sorted arrays.
+Write a function to detect a cycle in a linked list.
+Implement a function to solve the two-sum problem efficiently.
+Write a function to implement quicksort.
+Implement a function to find the longest increasing subsequence.
+Write a function to implement a trie data structure.
+Implement a function to find the nth number in the fibonacci sequence.
+Write a function to check if a string is an anagram.
+Implement a function to count the number of islands in a grid.
+Write a function to implement depth-first search on a graph.
+Implement a function to find the shortest path between two nodes.
+Write a function to check for balanced parentheses.
+Implement a function to convert a decimal number to binary.
+Write a function to find all subsets of a set.
+Implement a function to rotate an array by k positions.
+Write a function to implement breadth-first search on a graph.
+Implement a function to find the kth largest element in an array.
+Write a function to check if a number is prime.
+Implement a function to find all prime numbers up to n (Sieve of Eratosthenes).
+Write a function to implement a simple HTTP request parser.
+Implement a function to validate an email address using regex.
+Write a function to implement a simple state machine.
+Implement a function to parse and evaluate a mathematical expression.
+Write a function to implement a simple dependency resolver.
+Implement a function to find the greatest common divisor of two numbers.
+Write a function to implement a simple password validator with complexity rules.
+Implement a function to convert between different number bases.
+Write a function to implement a simple template renderer.
+Implement a function to find the edit distance between two strings.
+Write a function to implement a simple URL router.
+Implement a function to find all factor pairs of a number.
+Write a function to implement a simple rate limiter.
+Implement a function to convert a string to camelCase or snake_case.
+Write a function to implement a simple bloom filter.
+Implement a function to find the intersection of multiple arrays.
+Write a function to implement a simple CSV parser.

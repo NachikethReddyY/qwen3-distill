@@ -1,0 +1,103 @@
+Fix this function that should find the maximum value in a list but returns None for empty lists:
+def find_max(items):
+    max_val = None
+    for item in items:
+        if max_val < item:
+            max_val = item
+    return max_val
+
+Fix this async function that has a race condition:
+async def fetch_user_data(user_ids):
+    results = []
+    for uid in user_ids:
+        data = await fetch_from_api(f'/users/{uid}')
+        results.append(data)
+    return results
+
+Debug this recursive function that causes a stack overflow:
+def calculate_factorial(n):
+    return n * calculate_factorial(n - 1)
+
+Fix this function that should remove duplicates but doesn't work correctly:
+def remove_duplicates(items):
+    unique = []
+    for item in items:
+        if item not in unique:
+            unique.append(item)
+    return unique
+
+Debug this function that has an off-by-one error:
+def get_page_items(page, per_page, total):
+    start = page * per_page
+    end = (page + 1) * per_page
+    return list(range(start, end))
+
+Fix this function that should handle None values but crashes:
+def process_data(data):
+    return [x.upper() for x in data]
+
+Debug this function that doesn't handle concurrent access:
+class Counter:
+    def __init__(self):
+        self.count = 0
+    def increment(self):
+        self.count += 1
+
+Fix this SQL injection vulnerability:
+def get_user(username):
+    query = f"SELECT * FROM users WHERE username = '{username}'"
+    return db.execute(query)
+
+Debug this function that has incorrect variable scope:
+def outer():
+    x = 1
+    def inner():
+        x = 2
+    inner()
+    return x
+
+Fix this function that should retry on failure but doesn't:
+def call_api(url):
+    response = requests.get(url)
+    return response.json()
+
+Debug this memory leak in event listener:
+class EventEmitter:
+    def __init__(self):
+        self.listeners = []
+    def on(self, callback):
+        self.listeners.append(callback)
+    def off(self, callback):
+        pass  # Bug: never removes listeners
+
+Fix this function that has a type mismatch:
+def sum_numbers(items):
+    total = 0
+    for item in items:
+        total += item
+    return total
+
+Debug this function that doesn't handle edge cases:
+def binary_search(arr, target):
+    return arr.index(target)
+
+Fix this async function that doesn't await properly:
+async def get_data():
+    result = fetch_from_database()
+    return result
+
+Debug this function that has incorrect error handling:
+def parse_json(data):
+    try:
+        return json.loads(data)
+    except:
+        return None
+
+Fix this function that modifies the input list unexpectedly:
+def process_items(items):
+    items.sort()
+    return items[:5]
+
+Debug this function that has floating point precision issues:
+def calculate_percentage(value, total):
+    return (value / total) * 100

@@ -1,0 +1,30 @@
+I need to set up a Python project with proper structure, install dependencies, and create a simple HTTP server. Walk me through the steps.
+Help me debug a failing API endpoint. I'm getting a 500 error, but I don't know why. What tools would you use to diagnose this?
+I need to optimize a slow database query. How would you approach this investigation?
+Help me review a pull request that has test failures. What would you check first?
+I need to refactor a large class into smaller modules. What's your strategy?
+Help me set up a development environment from scratch on a new machine.
+I need to investigate memory leaks in a Node.js application. Walk me through your debugging process.
+Help me migrate data from one database to another. What precautions would you take?
+I need to secure a web application. What are the first security measures you'd implement?
+Help me set up automated testing for a legacy codebase without tests.
+I need to deploy an application to production. Walk me through a safe deployment strategy.
+Help me investigate why a scheduled job is failing intermittently.
+I need to optimize a slow frontend application. What would you profile and measure?
+Help me troubleshoot network connectivity issues between microservices.
+I need to implement caching in my application. Where would you start?
+Help me design a database schema for a social media platform.
+I need to investigate a performance regression in production. How would you approach this?
+Help me implement a feature flag system for gradual rollouts.
+I need to set up monitoring and alerting for a production system.
+Help me debug a complex integration test that passes locally but fails in CI.
+I need to implement rate limiting for an API. What strategy would you use?
+Help me troubleshoot a dependency conflict in a large project.
+I need to optimize Docker image size. What are the key optimizations?
+Help me implement a robust error handling strategy for an API.
+I need to migrate from monolithic to microservices architecture. What's your approach?
+Help me set up SSL/TLS certificates for a web application.
+I need to implement a backup and recovery strategy for a critical database.
+Help me troubleshoot slow API response times with multiple dependencies.
+I need to implement a feature that requires cross-team coordination. How would you plan this?
+Help me design a system to handle high traffic spikes.

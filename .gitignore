@@ -1,0 +1,41 @@
+# Environment variables (contains API keys)
+.env
+.env.local
+
+# Python virtual environment
+venv/
+env/
+ENV/
+
+# Model downloads (too large)
+models/
+adapters/
+checkpoints/
+gguf/
+
+# Training outputs
+data/raw/
+data/*.jsonl
+runs/
+lightning_logs/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs
+*.log
