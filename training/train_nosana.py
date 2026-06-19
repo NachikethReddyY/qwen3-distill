@@ -36,7 +36,7 @@ DATA_DIR = "data/mlx_data_combined"
 LEARNING_RATE = 2e-5
 BATCH_SIZE = 4  # GPU can handle larger batches than M4
 GRAD_ACCUM = 2
-ITERS = 1200
+ITERS = 1600  # ~5 epochs (1200 = 4 epochs, 2800+ = overfitting)
 MAX_SEQ_LENGTH = 1024
 
 # ── Helper Functions ─────────────────────────────────────────────
