@@ -12,6 +12,7 @@ models/
 adapters/
 checkpoints/
 gguf/
+qwen3.5-8b-distilled-clean/
 
 # Training outputs
 data/raw/
