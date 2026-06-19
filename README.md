@@ -1,122 +1,176 @@
-# Qwen3-8B Dev Engine
+# Qwen3.5-9B Fine-Tuning for Claude Code
 
-Building a fast, coding-focused agentic model via knowledge distillation from Kimi K2.
+High-quality fine-tuned model for reasoning, code generation, and tool use. Trained on **331 curated examples** across React, Python, JavaScript, system design, and tool integration.
 
-## Overview
+**Goal:** A small, fast model that writes production code and reasons like Claude while being runnable locally.
 
-```
-Kimi K2 (API, your $10 credits)
-  ↓
-Generate ~7,000 training examples
-  ↓
-Train Qwen3-8B (Nosana RTX 3090, ~$2.30)
-  ↓
-Convert to GGUF
-  ↓
-Upload to HuggingFace
-  ↓
-Run in LM Studio on your Mac (40-60 tok/s, 2-3x faster than 12B)
-```
+---
 
 ## Quick Start
 
-### 1. Setup (30 min)
+### 1. Training on Local Mac (M3/M4)
 ```bash
-cd ~/Developer/labs/qwen3-distill
-bash setup.sh
-nano .env  # Add your Kimi API key and HF token
+cd /Users/nr/Developer/labs/qwen3-distill
+./training/train_mlx.sh
+```
+**Time:** 1-2 hours | **Memory:** 32GB | **Output:** MLX adapter
+
+### 2. Training on GPU (Nosana/CUDA)
+```bash
+pip install -r training/requirements-gpu.txt
+python training/train_nosana.py
+```
+**Time:** 30 min - 2 hrs (varies by GPU) | **Cost:** $0.25-1.00/hr | **Output:** PyTorch adapter
+
+### 3. Test the Trained Model
+```bash
+# After either training finishes:
+python -m mlx_lm generate \
+  --model ./adapters/qwen35-9b-v3-merged \
+  --prompt "Write a React component that..." \
+  --max-tokens 500
 ```
 
-### 2. Generate Data (6-8 hrs, ~$8-10)
-```bash
-source venv/bin/activate
-python generate_data_kimi.py
+---
+
+## Project Structure
+
+```
+qwen3-distill/
+├── README.md                          # This file
+├── data/
+│   ├── train.jsonl                    # 180 examples (React, JS, Python, animations)
+│   ├── train2.jsonl                   # 65 examples (Advanced React, TypeScript)
+│   ├── train3.jsonl                   # 11 examples (Memory, async, edge cases)
+│   ├── train_tools.jsonl              # 23 examples (Docker, REST, GraphQL)
+│   ├── train_agents.jsonl             # 23 examples (System design, architecture)
+│   ├── train_tooluse.jsonl            # 29 examples (Multi-turn harness tool-use)
+│   ├── mlx_data_combined/             # Merged train+val datasets (ready for training)
+│   └── prompts/                       # Raw prompts by category
+├── scripts/
+│   ├── generate_*.py                  # Data generators for each category
+│   ├── merge_data.py                  # Merge datasets into training sets
+│   └── [utility scripts]
+├── training/
+│   ├── train_mlx.sh                   # Local M4 MacBook training
+│   ├── train_nosana.py                # GPU/Nosana training (PyTorch)
+│   ├── export_gguf.sh                 # Convert to GGUF for Ollama
+│   ├── requirements-gpu.txt           # GPU dependencies
+│   ├── README.md                      # Detailed training guide
+│   └── [other training scripts]
+├── adapters/
+│   ├── qwen35-9b-v3/                  # LoRA adapter (after training)
+│   ├── qwen35-9b-v3-merged/           # Fused model (MLX)
+│   └── qwen35-9b-v3-gpu/              # Adapter from GPU training
+└── models/                            # GGUF exports (after conversion)
 ```
 
-This calls Kimi K2 API ~7,000 times to generate:
-- Coding problems + solutions
-- Debugging + refactoring examples
-- Tool calling scenarios (web search, terminal, etc.)
-- Multi-step agent tasks
+---
 
-Data saved to:
-- `data/train.jsonl` (6,300 examples)
-- `data/val.jsonl` (700 examples)
+## Training Workflow: MLX vs GPU
 
-### 3. (Optional) Add More Data from Gemma 4 (8-10 hrs, ~$2-3)
-After Phase 2 completes, decide if you want to add hard algorithm examples from Gemma 4 26B on Nosana.
+| Feature | MLX (Local Mac) | GPU (Nosana) |
+|---------|-----------------|--------------|
+| **Speed** | Baseline | 2-6x faster |
+| **Cost** | Free | $0.25-1.00/hr |
+| **Memory required** | 32GB | 8GB+ VRAM |
+| **OOM risk** | Higher | Lower |
+| **Setup** | Ready to go | `pip install` + API key |
+| **Output** | MLX model | PyTorch adapter |
 
-### 4. Train (12 hrs, ~$2.30)
-Upload `data/train.jsonl` and `data/val.jsonl` to Nosana, run `train_unsloth.py` on RTX 3090.
+Choose **MLX** for testing on your Mac. Choose **GPU** if you hit OOM or need production speed.
 
-### 5. Convert to GGUF (30 min)
-Merge LoRA adapter + quantize to Q4_K_M and Q5_K_M.
+---
 
-### 6. Upload to HuggingFace (10 min)
-Push GGUF files to your HuggingFace repo.
+## Training Commands
 
-### 7. Test in LM Studio (1 hr)
-Download from HuggingFace, load in LM Studio, benchmark vs Gemma 4 12B.
+### Local Mac (MLX)
+```bash
+./training/train_mlx.sh
+```
 
-## Files
+### GPU / Nosana
+```bash
+pip install -r training/requirements-gpu.txt
+python training/train_nosana.py
+```
 
-| File | Purpose |
-|---|---|
-| `PLAN.md` | Detailed implementation plan |
-| `setup.sh` | Environment setup script |
-| `generate_data_kimi.py` | Call Kimi K2 API, generate training data |
-| `.env` | API keys (never commit) |
-| `data/prompts/` | Source prompts for each category |
-| `data/train.jsonl` | Generated training examples |
-| `data/val.jsonl` | Generated validation examples |
+### Export to GGUF
+```bash
+./training/export_gguf.sh
+```
 
-## Expected Results
+See `training/README.md` for detailed setup and troubleshooting.
 
-| Metric | Gemma 4 12B (now) | Qwen3-8B distilled (target) |
-|---|---|---|
-| Speed on 32GB Mac | ~15-20 tok/s | ~40-60 tok/s |
-| Memory | ~8-10GB | ~5-6GB |
-| Coding (HumanEval) | ~74% | ~82-86% |
-| Tool use | Good | Excellent |
+---
 
-## Cost Breakdown
+## Dataset (331 examples)
 
-| Phase | Cost | How |
-|---|---|---|
-| Data from Kimi | ~$8-10 | Use your Kimi K2 credits |
-| Training on GPU | ~$2.30 | Use your Nosana credits |
-| **Total** | **~$10** | All from credits you have |
+- **React/JavaScript** (122): Hooks, animations, performance, TypeScript
+- **Python** (45): Async, data viz, decorators, fast APIs
+- **System Design** (23): Microservices, databases, scalability
+- **Tool Integration** (52): Multi-turn tool-use, Docker, REST, GraphQL
+- **Coding** (15): Algorithms, interview problems
+- **Reasoning** (24): Conceptual explanations, debugging, edge cases
 
-## Status
+All examples include reasoning traces (`<thinking>` tags) and production patterns.
 
-- [x] Setup
-- [ ] Phase 1A: Generate data from Kimi K2
-- [ ] Phase 1B: (Optional) Generate data from Gemma 4
-- [ ] Phase 3: Train on Nosana GPU
-- [ ] Phase 4: Convert to GGUF
-- [ ] Phase 5: Upload to HuggingFace
-- [ ] Phase 6: Test in LM Studio
+---
+
+## Testing the Model
+
+### MLX
+```bash
+python -m mlx_lm generate \
+  --model ./adapters/qwen35-9b-v3-merged \
+  --prompt "Write a React hook that..." \
+  --max-tokens 500
+```
+
+### GGUF/Ollama
+```bash
+ollama run qwen3-distill "Explain OAuth vs JWT"
+```
+
+### PyTorch
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+from peft import PeftModel
+
+model = AutoModelForCausalLM.from_pretrained("Qwen/Qwen3.5-9B")
+model = PeftModel.from_pretrained(model, "./adapters/qwen35-9b-v3-gpu")
+tokenizer = AutoTokenizer.from_pretrained("Qwen/Qwen3.5-9B")
+
+inputs = tokenizer("Write a React hook", return_tensors="pt")
+outputs = model.generate(**inputs, max_length=500)
+print(tokenizer.decode(outputs[0]))
+```
+
+---
 
 ## Troubleshooting
 
-**"KIMI_API_KEY not set"**
-→ Make sure `.env` is created and has your Kimi API key
+### Training OOM
+- **Mac:** Close other apps, reduce `--max-seq-length` to 512, try GPU
+- **GPU:** Reduce batch size to 1, reduce seq-length to 512, use cheaper GPU
 
-**"ModuleNotFoundError: No module named 'openai'"**
-→ Run `source venv/bin/activate` then `pip install openai`
+### Data not found
+```bash
+cd /Users/nr/Developer/labs/qwen3-distill
+python scripts/merge_data.py  # Rebuild merged datasets
+```
 
-**Rate limited by Kimi API**
-→ The script includes `time.sleep(0.5)` between calls. If you hit limits, try increasing it.
+See `training/README.md` for more troubleshooting.
 
-**Out of memory during training**
-→ Reduce batch size: `--per_device_train_batch_size 1` and add `--gradient_checkpointing`
+---
 
 ## Next Steps
 
-1. Edit `.env` with your Kimi API key
-2. Run `bash setup.sh`
-3. Run `python generate_data_kimi.py`
-4. Check results: `head -5 data/train.jsonl`
-5. Proceed to Phase 3 training
+1. Choose training method (MLX or GPU)
+2. Run training
+3. Test generated output
+4. Export to GGUF if needed
+5. Deploy or iterate
 
-See `PLAN.md` for detailed instructions.
+See detailed guide in `training/README.md`.
+

@@ -1,0 +1,14 @@
+# GPU Training Requirements (CUDA / Nosana)
+# Install: pip install -r training/requirements-gpu.txt
+
+torch>=2.0.0,<2.2.0
+transformers>=4.36.0
+peft>=0.7.0
+trl>=0.7.0
+bitsandbytes>=0.41.0
+accelerate>=0.24.0
+tensorboard>=2.14.0
+wandb>=0.16.0
+
+# For Nosana specific features (optional)
+# nosana-sdk>=0.1.0

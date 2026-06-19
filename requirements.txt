@@ -1,0 +1,18 @@
+# API clients
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# Data processing
+tqdm>=4.66.0
+datasets>=2.14.0
+
+# Training & ML
+torch>=2.0.0
+transformers>=4.40.0
+trl>=0.7.0
+peft>=0.7.0
+bitsandbytes>=0.41.0
+
+# Utils
+huggingface-hub>=0.17.0
+unsloth @ git+https://github.com/unslothai/unsloth.git
